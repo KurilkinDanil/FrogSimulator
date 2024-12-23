@@ -3,6 +3,11 @@ using System.Collections.Generic;
 
 public class Frog : Unit, IBuffable
 {
+    public static Frog instance;
+
+    public FrogTongue _frogTongue;
+    public FrogStats _frogStats;
+
     public FrogStats BaseStats { get; }
     public FrogStats CurrentStats { get; private set; }
 
@@ -17,6 +22,11 @@ public class Frog : Unit, IBuffable
     public Action Idled;
     public Action Moved;
     public Action Attacked;
+
+    private void Awake()
+    {
+        if (instance == null) instance = this;
+    }
 
     public void ApplyBuff(IBuff buff)
     {

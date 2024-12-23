@@ -11,6 +11,7 @@ public class FrogEat : MonoBehaviour
         if(collision.gameObject == _frogTongue.grabbledObject)
         {
             collision.gameObject.GetComponent<iWasEating>().Eat(_frogStats);
+            _frogTongue.grabbledObject = null;
             Destroy(collision.gameObject);
             Debug.Log("׳עמ-עמ סתוכ");
         }
